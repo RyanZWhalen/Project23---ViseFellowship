@@ -1,0 +1,7 @@
+Trade reconciliation complete.
+Fidelity records: 132
+Vise records: 122
+Discrepancy types: {'extra_fidelity_trade': 2, 'missing_fidelity_trade': 1, 'notional_mismatch': 120, 'quantity_mismatch': 1}
+Side-level notional summary:
+  BUY: fidelity=42275.28 vise=42411.91 diff=-136.63
+  SELL: fidelity=40830.60 vise=40353.24 diff=477.36

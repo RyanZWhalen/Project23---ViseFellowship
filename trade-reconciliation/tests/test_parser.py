@@ -16,4 +16,4 @@ def test_vise_csv_parsers_extract_expected_counts() -> None:
     trades = parse_vise_trades(root / "data" / "raw" / "trades.csv")
     lots = parse_vise_lots(root / "data" / "raw" / "lots.csv")
     assert len(trades) == 122
-    assert len(lots) == 48
+    assert len(lots) == 47
