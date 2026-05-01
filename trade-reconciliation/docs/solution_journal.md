@@ -54,6 +54,7 @@ Reconciliation is performed at `(symbol, side)` granularity after normalization:
 ## Issues Encountered
 - Fidelity files in this sample are 1073 bytes per line while the PDF references a 1300-byte layout; required fields are still present in the available segment and parsed successfully.
 - Multiple sell symbols are split across several Fidelity rows (for lot-level accounting), requiring aggregation prior to comparison.
+- To support future large backfills and SLA-driven processing, a Rust core was added for high-throughput fixed-width parsing and aggregation, with Python fallback for environments without Rust tooling.
 
 ## Final Findings
 Running the end-to-end workflow on the supplied sample data produced these findings:

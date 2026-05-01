@@ -2,6 +2,8 @@
 
 Small Python project for parsing Fidelity bookkeeping trades and reconciling them against Vise trade and lot records for a trading day.
 
+The repository now also includes an optional Rust acceleration core for fixed-width parsing and reconciliation over large backfills.
+
 ## What it does
 
 - Parses fixed-width Fidelity records from `data/raw/FIDELITY-20250729.txt` using field locations from `Bookkeeping-5.3.7.pdf`.
@@ -29,11 +31,15 @@ trade-reconciliation/
 ├── src/
 │   ├── __init__.py
 │   ├── main.py
+│   ├── rust_bridge.py
 │   ├── parser.py
 │   ├── models.py
 │   ├── reconcile.py
 │   ├── aggregation.py
 │   └── utils.py
+├── rust-core/
+│   ├── Cargo.toml
+│   └── src/main.rs
 ├── outputs/
 ├── tests/
 └── docs/
@@ -52,6 +58,8 @@ pip install -r requirements.txt
 ```bash
 python -m src.main
 ```
+
+If `cargo` is installed, `src.main` automatically tries the Rust core first and falls back to Python if Rust is unavailable.
 
 ## Test
 

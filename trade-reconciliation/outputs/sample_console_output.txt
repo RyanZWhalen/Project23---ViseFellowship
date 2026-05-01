@@ -1,4 +1,5 @@
 Trade reconciliation complete.
+Engine: python
 Fidelity records: 132
 Vise records: 122
 Discrepancy types: {'extra_fidelity_trade': 2, 'missing_fidelity_trade': 1, 'notional_mismatch': 120, 'quantity_mismatch': 1}
