@@ -5,5 +5,12 @@ __pycache__/
 venv/
 outputs/*.csv
 outputs/*.json
+
+# LaTeX build artifacts (docs/repository_map.tex)
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.lot
+docs/*.toc
 data/processed/*
 !data/processed/.gitkeep

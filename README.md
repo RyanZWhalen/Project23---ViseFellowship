@@ -1,6 +1,8 @@
 # Project23---ViseFellowship
 
-This repository contains the `trade-reconciliation` Python project used for a trade reconciliation assessment.
+## Overview (interview pitch)
+
+This repository is a **trade reconciliation exercise**: for a single trading day, it checks whether **Fidelity’s fixed-width bookkeeping file** lines up with **Vise’s internal CSV trades** (`trades.csv`) and whether **reported sells are plausible against lot inventory** (`lots.csv`). The pipeline parses both sides into a common trade shape, aggregates by **symbol and side (buy vs. sell)**, then classifies gaps such as missing or extra buckets, **quantity mismatches**, and **notional mismatches** within a small tolerance. It writes a **CSV discrepancy report**, a **JSON summary** (counts, side- and ticker-level notionals, lot warnings, which engine ran), and a **captured console log**. An optional **`rust-core`** path (invoked automatically when `cargo` is available) can accelerate parsing and reconciliation on large inputs; otherwise the same behavior runs in **pure Python**, with lot validation always handled in Python.
 
 ## Project location
 
