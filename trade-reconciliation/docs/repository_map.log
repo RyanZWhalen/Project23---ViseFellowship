@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.2)  14 MAY 2026 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.2)  14 MAY 2026 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,7 +317,8 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count293
 \l__pdf_internal_box=\box58
 )
-No file repository_map.aux.
+(c:\Users\hello\Project23---ViseFellowship\trade-reconciliation\docs\repository
+_map.aux)
 \openout1 = `repository_map.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -355,11 +356,17 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
+
 (C:\Users\hello\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 Package hyperref Info: Link coloring OFF on input line 25.
+
+(c:\Users\hello\Project23---ViseFellowship\trade-reconciliation\docs\repository
+_map.out)
+(c:\Users\hello\Project23---ViseFellowship\trade-reconciliation\docs\repository
+_map.out)
 \@outlinefile=\write3
 \openout3 = `repository_map.out'.
 
@@ -434,46 +441,94 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 34.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 36.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 36.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 36.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 36.
+[1
+
+{C:/Users/hello/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/hell
+o/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 78.
+
+Overfull \hbox (2.91385pt too wide) in paragraph at lines 80--81
+[]\T1/lmr/m/n/10.95 (-20) Input ar-ti-facts: Vise $\T1/lmtt/m/n/10.95 trades . 
+csv$\T1/lmr/m/n/10.95 (-20) , $\T1/lmtt/m/n/10.95 lots .
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\UrlFont' on input line 36.
+Overfull \hbox (37.72488pt too wide) in paragraph at lines 82--83
+[]\T1/lmr/m/n/10.95 (-20) Optional Cargo project: faster parse/reconcile
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 36.
+Overfull \hbox (6.57414pt too wide) in paragraph at lines 84--85
+[]\T1/lmr/m/n/10.95 (-20) Narrative notes ($\T1/lmtt/m/n/10.95 solution _ journ
+al . md$\T1/lmr/m/n/10.95 (-20) ) and
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 36.
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[]|\T1/lmr/m/n/10.95 (+20) Aggregates trades by \T1/lmtt/m/n/10.95 (symbol, sid
+e)\T1/lmr/m/n/10.95 (+20) ;
+ []
 
-! Undefined control sequence.
-\Url Error ->\url used in a moving argument. 
-                                             
-l.36 ...ctory tree (\path{trade-reconciliation/})}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
- 
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+\T1/lmr/m/n/10.95 (+20) emits dis-crep-ancy rows (miss-ing/extra Fi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+\T1/lmr/m/n/10.95 (+20) delity, quan-tity vs. no-tional mis-match);
+ []
+
+
+Underfull \hbox (badness 1910) in paragraph at lines 124--125
+[]|\T1/lmr/m/n/10.95 (+20) Implied-decimal pars-ing, money quan-ti-za-tion,
+ []
+
+
+
+[2]
+
+[3]
+
+[4]
+(c:\Users\hello\Project23---ViseFellowship\trade-reconciliation\docs\repository
+_map.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+Package rerunfilecheck Warning: File `repository_map.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `repository_map.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  8EF1CE40E2859D3B987150EBBB7804AF;1124.
+ ) 
 Here is how much of TeX's memory you used:
- 11137 strings out of 473523
- 178675 string characters out of 5714631
- 606598 words of memory out of 5000000
- 34192 multiletter control sequences out of 15000+600000
- 613516 words of font info for 104 fonts, out of 8000000 for 9000
+ 11189 strings out of 473523
+ 179990 string characters out of 5714631
+ 617603 words of memory out of 5000000
+ 34203 multiletter control sequences out of 15000+600000
+ 618255 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1079b,409s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 75i,7n,79p,1079b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
+b><C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
+><C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
+<C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><
+C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><
+C:/Users/hello/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on c:\Users\hello\Project23---ViseFellowship\trade-reconciliatio
+n\docs\repository_map.pdf (4 pages, 206740 bytes).
+PDF statistics:
+ 71 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 34817 words of extra memory for PDF output out of 35830 (max. 10000000)
+

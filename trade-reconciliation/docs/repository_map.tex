@@ -26,14 +26,18 @@
 \maketitle
 
 \begin{abstract}
-This document summarizes the layout of the \path{Project23---ViseFellowship} repository with emphasis on the \path{trade-reconciliation/} package: parsers, reconciliation logic, optional Rust acceleration, tests, sample data, and generated outputs.
+\sloppy
+This document summarizes the layout of the repository root project
+\texttt{Project23---ViseFellowship}, with emphasis on the
+\texttt{trade-reconciliation/} tree: parsers, reconciliation logic,
+optional Rust acceleration, tests, sample data, and generated outputs.
 \end{abstract}
 
 \section{Repository root}
 
 The repository root contains a short pointer \path{README.md} and convenience copies of CSV inputs at the top level (\path{trades.csv}, \path{lots.csv}). All runnable code and canonical data for the exercise live under \path{trade-reconciliation/}.
 
-\section{Directory tree (\path{trade-reconciliation/})}
+\section[Directory tree (trade-reconciliation)]{Directory tree (\texttt{trade-reconciliation/})}
 
 \begin{verbatim}
 trade-reconciliation/
@@ -84,9 +88,10 @@ trade-reconciliation/
   \item[\path{trade-reconciliation/docs/}] Narrative notes (\path{solution_journal.md}) and this repository map.
 \end{description}
 
-\section{Specific files under \path{src/}}
+\section[Specific files under src]{Specific files under \texttt{src/}}
 
 \begin{longtable}{@{}p{0.28\linewidth}p{0.66\linewidth}@{}}
+  \caption{Python modules in \texttt{src/} (paths relative to \texttt{trade-reconciliation/}).} \\
   \toprule
   \textbf{File} & \textbf{Role} \\
   \midrule
