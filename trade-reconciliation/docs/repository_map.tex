@@ -1,0 +1,168 @@
+% repository_map.tex --- Repository structure and file roles (trade-reconciliation)
+%
+% To keep this in sync when you add or move files:
+%   1. Update \RepositorySyncDate below.
+%   2. Adjust the tree and tables to match the workspace.
+%   3. Recompile (e.g. pdflatex repository_map.tex).
+%
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+\newcommand{\RepositorySyncDate}{2026-05-14}
+
+\title{Project23---ViseFellowship\\Repository map}
+\author{Generated reference (maintain manually or via script)}
+\date{Synced: \RepositorySyncDate}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document summarizes the layout of the \path{Project23---ViseFellowship} repository with emphasis on the \path{trade-reconciliation/} package: parsers, reconciliation logic, optional Rust acceleration, tests, sample data, and generated outputs.
+\end{abstract}
+
+\section{Repository root}
+
+The repository root contains a short pointer \path{README.md} and convenience copies of CSV inputs at the top level (\path{trades.csv}, \path{lots.csv}). All runnable code and canonical data for the exercise live under \path{trade-reconciliation/}.
+
+\section{Directory tree (\path{trade-reconciliation/})}
+
+\begin{verbatim}
+trade-reconciliation/
+  README.md
+  requirements.txt
+  .gitignore
+  data/
+    raw/
+      trades.csv
+      lots.csv
+      (FIDELITY-20250729.txt when present)
+    processed/
+  docs/
+    solution_journal.md
+    repository_map.tex   <-- this file
+  outputs/
+    reconciliation_report.csv      (after run)
+    reconciliation_summary.json   (after run)
+    sample_console_output.txt      (after run)
+  rust-core/
+    Cargo.toml
+    src/main.rs
+  src/
+    __init__.py
+    main.py
+    rust_bridge.py
+    parser.py
+    models.py
+    reconcile.py
+    aggregation.py
+    utils.py
+  tests/
+    __init__.py
+    test_parser.py
+    test_reconcile.py
+    test_aggregation.py
+\end{verbatim}
+
+\section{Specific folders}
+
+\begin{description}
+  \item[\path{trade-reconciliation/src/}] Python package: entry point, parsing, domain models, reconciliation and summaries, CSV/JSON writers, and subprocess bridge to the Rust core.
+  \item[\path{trade-reconciliation/tests/}] \texttt{pytest} suite for parser, reconcile, and aggregation behavior.
+  \item[\path{trade-reconciliation/data/raw/}] Input artifacts: Vise \path{trades.csv}, \path{lots.csv}, and (when supplied) fixed-width Fidelity \path{FIDELITY-20250729.txt}.
+  \item[\path{trade-reconciliation/data/processed/}] Reserved for derived or intermediate data (may be empty).
+  \item[\path{trade-reconciliation/rust-core/}] Optional Cargo project: faster parse/reconcile path invoked from Python when \texttt{cargo} is available.
+  \item[\path{trade-reconciliation/outputs/}] Written on each successful run: discrepancy report, JSON summary, and captured console text.
+  \item[\path{trade-reconciliation/docs/}] Narrative notes (\path{solution_journal.md}) and this repository map.
+\end{description}
+
+\section{Specific files under \path{src/}}
+
+\begin{longtable}{@{}p{0.28\linewidth}p{0.66\linewidth}@{}}
+  \toprule
+  \textbf{File} & \textbf{Role} \\
+  \midrule
+  \endfirsthead
+  \multicolumn{2}{c}{\tablename\ \thetable{} --- \textit{continued}} \\
+  \toprule
+  \textbf{File} & \textbf{Role} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{2}{r}{\textit{Continued on next page}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+
+  \path{main.py}
+  & Orchestrates the pipeline: tries Rust via \path{rust_bridge.py}; parses Vise lots/trades in Python; validates sells vs.\ lots; writes \path{outputs/} CSV/JSON and console capture. \\
+
+  \path{rust_bridge.py}
+  & If \texttt{cargo} and \path{rust-core/Cargo.toml} exist, runs \texttt{cargo run --release} with Fidelity and trades paths and reads JSON from a temp file; returns \texttt{None} on failure so Python path runs. \\
+
+  \path{parser.py}
+  & Fixed-width Fidelity line parsing (record type \texttt{D}, trade flag, symbol/side/quantity/notional slices) and CSV parsers for Vise trades and lots into \path{models.py} types. \\
+
+  \path{models.py}
+  & Frozen dataclasses: \texttt{NormalizedTrade}, \texttt{LotRecord}, \texttt{Discrepancy}; serialization helpers for CSV/JSON-friendly dicts. \\
+
+  \path{reconcile.py}
+  & Aggregates trades by \texttt{(symbol, side)}; emits discrepancy rows (missing/extra Fidelity, quantity vs.\ notional mismatch); \texttt{validate\_sell\_quantities\_against\_lots}. \\
+
+  \path{aggregation.py}
+  & Builds discrepancy count rollups and notional summaries (by side and by ticker) for the JSON summary when using the Python engine. \\
+
+  \path{utils.py}
+  & Implied-decimal parsing, money quantization, \texttt{write\_csv} / \texttt{write\_json}. \\
+
+  \path{__init__.py}
+  & Package marker. \\
+\end{longtable}
+
+\section{Rust core}
+
+\begin{description}
+  \item[\path{rust-core/Cargo.toml}] Crate manifest for the optional native path.
+  \item[\path{rust-core/src/main.rs}] CLI: reads Fidelity and Vise trade paths, writes reconciliation JSON for the Python bridge to consume.
+\end{description}
+
+\section{Tests}
+
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  \textbf{File} & \textbf{Focus} \\
+  \midrule
+  \path{tests/test_parser.py} & Fidelity/Vise parsing correctness \\
+  \path{tests/test_reconcile.py} & Aggregation and discrepancy classification \\
+  \path{tests/test_aggregation.py} & Summary and count helpers \\
+  \bottomrule
+\end{tabular}
+
+\section{Configuration and docs}
+
+\begin{description}
+  \item[\path{requirements.txt}] Python dependencies for the project.
+  \item[\path{.gitignore}] Ignores virtualenv, caches, and generated artifacts as configured.
+  \item[\path{README.md}] Setup, run (\texttt{python -m src.main}), test (\texttt{pytest}), and layout overview.
+  \item[\path{docs/solution_journal.md}] Working notes and rationale for the assessment.
+\end{description}
+
+\section{Outputs (generated)}
+
+After \texttt{python -m src.main} from \path{trade-reconciliation/}:
+
+\begin{description}
+  \item[\path{outputs/reconciliation_report.csv}] Row-level discrepancies.
+  \item[\path{outputs/reconciliation_summary.json}] Counts, notional summaries, engine (\texttt{rust} vs.\ \texttt{python}), lot warnings, timestamp.
+  \item[\path{outputs/sample_console_output.txt}] Captured stdout from the last run.
+\end{description}
+
+\end{document}
